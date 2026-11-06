@@ -1,0 +1,31 @@
+{
+  "name": "entervpn-support-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "EnterVPN support bot — тикеты для службы поддержки",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start:prod": "node dist/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "grammy": "^1.35.0",
+    "https-proxy-agent": "^9.1.0",
+    "pino": "^9.6.0",
+    "socks-proxy-agent": "^10.1.0",
+    "tsx": "^4.19.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "pino-pretty": "^13.0.0",
+    "typescript": "^5.7.3"
+  }
+}
