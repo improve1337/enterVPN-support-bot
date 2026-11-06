@@ -34,12 +34,18 @@ async function main(): Promise<void> {
 
   logger.info(
     {
-      admins: config.adminIds.length,
+      admins: allAdminIds(),
       db: config.databasePath,
       proxy: config.telegramProxy ? "включён" : "нет",
     },
     `${config.brandName} поддержка: запуск`,
   );
+
+  if (allAdminIds().length === 0) {
+    logger.warn(
+      "Нет ни одного админа: тикеты никому не передаются, админ-панель никому не видна. Задайте ADMIN_IDS в переменных окружения хостинга.",
+    );
+  }
 
   const check = await preflight(bot);
   if (!check.ok) {
